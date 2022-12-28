@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const LeftSidebar = () => {
     return (
         
-            <div className='px-2 w-1/5 mt-3'>
+            <div className='p-2 w-1/5 mt-3 mx-1 bg-white rounded-2xl shadow-lg'>
                 <Link to='/'>
                     <button className='hover:bg-stone-200 w-full px-3 py-1 mb-1 rounded-2xl flex items-center  focus:bg-stone-300'>
                         <BiHomeHeart className='text-3xl ' />

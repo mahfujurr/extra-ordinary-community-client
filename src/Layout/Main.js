@@ -7,7 +7,7 @@ import Navbar from '../Shared/Navbar';
 
 const Main = () => {
     return (
-        <div className='w-full'>
+        <div className='w-full bg-gray-200'>
             <Navbar></Navbar>
             <div className='flex flex-row mt-16 w-full justify-between'>
 

@@ -18,12 +18,12 @@ const Navbar = () => {
         {
             user?.email ?
                 <>
-                    <button onClick={handleLogout} className="py-1 px-5 hover:bg-rose-200 rounded-2xl border-2 font-semibold ease-in-out duration-300">SignOut</button>
+                    <button onClick={handleLogout} className="py-1 px-5 hover:bg-rose-200 bg-rose-300 rounded-2xl border-2 font-semibold ease-in-out duration-300">SignOut</button>
                 </>
                 :
                 <div className='items-center flex-shrink-0  lg:flex'>
-                    <Link to='/login'><button className="py-1 px-5 hover:bg-rose-200 rounded-2xl border-2 font-semibold ease-in-out duration-300">Sign in</button></Link>
-                    <Link to='/signup'><button className="py-1 px-5 hover:bg-rose-200 rounded-2xl border-2 font-semibold ease-in-out duration-300">Join Now</button></Link>
+                    <Link to='/login'><button className="py-1 px-5 hover:bg-rose-200 bg-rose-300 rounded-2xl border-2 font-semibold ease-in-out duration-300">Sign in</button></Link>
+                    <Link to='/register'><button className="py-1 px-5 hover:bg-rose-200 bg-rose-300 rounded-2xl border-2 font-semibold ease-in-out duration-300">Join Now</button></Link>
                 </div>
         }
     </>
@@ -41,15 +41,18 @@ const Navbar = () => {
                 </div>
             </div>
             <div className='hidden md:flex'>
-                <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
-                    <button className="">
-                        <div className="avatar online mx-5">
-                            <div className="w-8 rounded-full">
-                                <img src={user?.photoURL} alt="" />
+                {
+                    user?.photoURL &&
+                    <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                        <button className="">
+                            <div className="avatar online mx-5">
+                                <div className="w-8 rounded-full">
+                                    <img src={user?.photoURL} alt="" />
+                                </div>
                             </div>
-                        </div>
-                    </button>
-                </div>
+                        </button>
+                    </div>
+                }
 
                 <div className="lg:pr-10 ">
                     {menuItems}
