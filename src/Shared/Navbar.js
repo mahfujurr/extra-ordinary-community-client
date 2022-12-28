@@ -1,6 +1,4 @@
 import React, { useContext } from 'react';
-import { BsMailbox2 } from "react-icons/bs";
-import { FaUserCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 
@@ -20,17 +18,17 @@ const Navbar = () => {
         {
             user?.email ?
                 <>
-                    <button onClick={handleLogout} className="self-center lg:px-8 py-3 text-white font-semibold px-4 bg-cyan-900 rounded-2xl hover:bg-cyan-900/80 transition duration-300 ease-in-out">SignOut</button>
+                    <button onClick={handleLogout} className="py-1 px-5 hover:bg-rose-200 rounded-2xl border-2 font-semibold ease-in-out duration-300">SignOut</button>
                 </>
                 :
                 <div className='items-center flex-shrink-0  lg:flex'>
-                    <Link to='/login'><button className="self-center lg:px-8 py-3 font-semibold px-4  rounded-2xl hover:bg-black/10 transition duration-300 ease-in-out">Sign in</button></Link>
-                    <Link to='/signup'><button className="self-center lg:px-8 py-3 border p-3 border-black/50 hover:border-white transition duration-300 ease-in-out font-semibold rounded-2xl text-white bg-cyan-900 ">Join Now</button></Link>
+                    <Link to='/login'><button className="py-1 px-5 hover:bg-rose-200 rounded-2xl border-2 font-semibold ease-in-out duration-300">Sign in</button></Link>
+                    <Link to='/signup'><button className="py-1 px-5 hover:bg-rose-200 rounded-2xl border-2 font-semibold ease-in-out duration-300">Join Now</button></Link>
                 </div>
         }
     </>
     return (
-        <div className='z-10 fixed top-0 w-full bg-rose-100 flex items-center justify-center md:justify-between py-1 md:py-0'>
+        <div className='z-10 fixed top-0 w-full bg-rose-100 flex items-center justify-center md:justify-between py-1 md:py-0 shadow-md'>
             <h1 className='font-bold text-2xl text-black pl-5'>EOS</h1>
             <div className="  md:flex flex-col justify-center hidden">
 
@@ -43,9 +41,15 @@ const Navbar = () => {
                 </div>
             </div>
             <div className='hidden md:flex'>
-                <button><BsMailbox2 className=' text-2xl' /></button>
-                <button><FaUserCircle className=' text-2xl mx-3' /></button>
-
+                <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                    <button className="">
+                        <div className="avatar online mx-5">
+                            <div className="w-8 rounded-full">
+                                <img src={user?.photoURL} alt="" />
+                            </div>
+                        </div>
+                    </button>
+                </div>
 
                 <div className="lg:pr-10 ">
                     {menuItems}
