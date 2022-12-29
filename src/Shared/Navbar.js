@@ -22,8 +22,8 @@ const Navbar = () => {
                 </>
                 :
                 <div className='items-center flex-shrink-0  lg:flex'>
-                    <Link to='/login'><button className="py-1 px-5 hover:bg-rose-200 bg-rose-300 rounded-2xl border-2 font-semibold ease-in-out duration-300">Sign in</button></Link>
-                    <Link to='/register'><button className="py-1 px-5 hover:bg-rose-200 bg-rose-300 rounded-2xl border-2 font-semibold ease-in-out duration-300">Join Now</button></Link>
+                    <Link to='/login'><button className="py-1 px-5 text-black hover:bg-rose-200 bg-rose-300 rounded-2xl border-2 font-semibold ease-in-out duration-300">Sign in</button></Link>
+                    <Link to='/register'><button className="py-1 px-5 text-black hover:bg-rose-200 bg-rose-300 rounded-2xl border-2 font-semibold ease-in-out duration-300">Join Now</button></Link>
                 </div>
         }
     </>

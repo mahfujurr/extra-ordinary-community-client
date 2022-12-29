@@ -16,7 +16,7 @@ const Main = () => {
 
                 {/* 2nd/middle section  */}
                 <div className='bg-gray-200 w-3/5 flex justify-center pt-5'>
-                    <div className='w-3/5 bg-white shadow-lg rounded-xl'>
+                    <div className='w-3/5 '>
                         <Outlet ></Outlet>
                     </div>
                 </div>
