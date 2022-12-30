@@ -55,7 +55,7 @@ const Login = () => {
                 }
                 console.log(currentUser);
 
-                // fetch('https://your-medico-server.vercel.app/jwt', {
+                // fetch('/jwt', {
                 //     method: 'POST',
                 //     headers: {
                 //         'content-type': 'application/json'
