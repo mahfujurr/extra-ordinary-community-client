@@ -8,7 +8,6 @@ import About from "../Pages/About";
 import Media from "../Pages/Media";
 import Message from "../Pages/Message";
 import AboutModal from "../Pages/AboutModal";
-import Like from "../Pages/Like";
 
 
 const router = createBrowserRouter([
@@ -36,10 +35,7 @@ const router = createBrowserRouter([
                 path: '/message',
                 element: <Message></Message> ,
             },
-            // {
-            //     path: '/like',
-            //     element: <Like></Like> ,
-            // },
+            
             {
                 path: '/status/:id',
                 element: <PagesStatus></PagesStatus>,
