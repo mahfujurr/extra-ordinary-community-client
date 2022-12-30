@@ -94,7 +94,7 @@ const Home = () => {
                             </div>
                             <textarea {...register("postText", {
                                 required: "Name is Required"
-                            })} className="border-2 rounded-xl outline-rose-100 w-4/5 p-2" placeholder="write here..."></textarea>
+                            })} className="border-2 rounded-xl bg-white outline-rose-100 w-4/5 p-2" placeholder="write here..."></textarea>
 
 
                         </div>
@@ -153,6 +153,7 @@ const Home = () => {
                     </div>)
                 }
             </div>
+            
         </div>
     );
 };
