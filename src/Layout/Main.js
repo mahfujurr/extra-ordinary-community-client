@@ -7,9 +7,9 @@ import Navbar from '../Shared/Navbar';
 
 const Main = () => {
     return (
-        <div className='w-full bg-gray-200'>
+        <div className='w-full bg-gray-200 text-black'>
             <Navbar></Navbar>
-            <div className='flex flex-row mt-16 w-full justify-between'>
+            <div className='flex flex-row pt-16 w-full justify-between'>
 
                 {/* 1st/left sidebar section  */}
                 <LeftSidebar ></LeftSidebar>
@@ -22,8 +22,8 @@ const Main = () => {
                 </div>
 
                 {/* 3rd section  */}
-                <div className='w-1/5 bg-blue-100 hidden md:flex'>
-                    <h1>sideber</h1>
+                <div className='w-1/5 bg-gray-200 hidden md:flex'>
+                    <h1></h1>
                 </div>
             </div>
 
