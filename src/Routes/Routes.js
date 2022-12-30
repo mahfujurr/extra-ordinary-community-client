@@ -4,6 +4,11 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Login/Login";
 import PagesStatus from "../Pages/PagesStatus";
 import Register from "../Pages/Register/Register";
+import About from "../Pages/About";
+import Media from "../Pages/Media";
+import Message from "../Pages/Message";
+import AboutModal from "../Pages/AboutModal";
+import Like from "../Pages/Like";
 
 
 const router = createBrowserRouter([
@@ -16,8 +21,29 @@ const router = createBrowserRouter([
                 element: <Home></Home>,
             },
             {
+                path: '/about',
+                element: <About></About> ,
+            },
+            {
+                path: '/aboutmodal',
+                element: <AboutModal></AboutModal> ,
+            },
+            {
+                path: '/media',
+                element: <Media></Media>,
+            },
+            {
+                path: '/message',
+                element: <Message></Message> ,
+            },
+            // {
+            //     path: '/like',
+            //     element: <Like></Like> ,
+            // },
+            {
                 path: '/status/:id',
-                element: <PagesStatus></PagesStatus>
+                element: <PagesStatus></PagesStatus>,
+                loader: ({params}) => fetch(`http://localhost:5000/status/${params.id}`)
             },
             
         ]

@@ -3,10 +3,11 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
+import Like from './Like';
 
 const Home = () => {
     const { register, handleSubmit } = useForm();
-    const [imageData, setImageData] = useState([]);
+    const [imageData, setImageData] = useState(null);
     const { user } = useContext(AuthContext);
     const imageHostKey = process.env.REACT_APP_imgbb_key;
     const { data: postInfos = [], refetch } = useQuery({
@@ -20,7 +21,7 @@ const Home = () => {
         const formData = new FormData();
         formData.append('image', image);
 
-        const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageHostKey}`
+        const url = `https://api.imgbb.com/1/upload?expiration=15552000&key=${imageHostKey}`
         fetch(url, {
             method: 'POST',
             body: formData
@@ -28,6 +29,7 @@ const Home = () => {
             .then(res => res.json())
             .then(imgData => {
                 setImageData(imgData.data.url)
+                console.log(imgData)
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -58,6 +60,7 @@ const Home = () => {
             .then(data => {
                 console.log(data);
                 refetch();
+                // form.reset();
 
             })
     }
@@ -132,7 +135,13 @@ const Home = () => {
                         <h1>
                             {postInfo.postsText}
                         </h1>
-                        <Link to={`/status/${postInfo._id}`}><button className='text-xs mt-2 hover:bg-black hover:text-white border-2 py-1 px-2 border-black rounded-2xl'>View details</button></Link>
+                        {
+                            postInfo?.imgURL && <img src={postInfo?.imgURL} alt="" className='my-2 bg-cover bg-center' />
+                        }
+                        <div className='flex justify-between items-center'>
+                            <Like></Like>
+                            <Link to={`/status/${postInfo._id}`}><button className='text-xs mt-2 hover:bg-black hover:text-white border-2 py-1 px-2 border-black rounded-2xl'>View details</button></Link>
+                        </div>
                     </div>)
                 }
             </div>
