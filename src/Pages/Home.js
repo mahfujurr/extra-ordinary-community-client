@@ -12,7 +12,7 @@ const Home = () => {
     const imageHostKey = process.env.REACT_APP_imgbb_key;
     const { data: postInfos = [], refetch } = useQuery({
         queryKey: ['postInfos'],
-        queryFn: () => fetch(`http://localhost:5000/home`)
+        queryFn: () => fetch(`https://eoc-server.vercel.app/home`)
             .then(res => res.json())
     })
 
@@ -54,7 +54,7 @@ const Home = () => {
             imgURL,
             like
         }
-        fetch('http://localhost:5000/posts', {
+        fetch('https://eoc-server.vercel.app/posts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

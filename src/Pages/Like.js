@@ -6,7 +6,7 @@ import { FaHeart } from "react-icons/fa";
 const Like = ({postInfo}) => {
     // const { data: postl = [], refetch } = useQuery({
     //     queryKey: ['postl'],
-    //     queryFn: () => fetch(`http://localhost:5000/status/${postInfo._id}`)
+    //     queryFn: () => fetch(`https://eoc-server.vercel.app/status/${postInfo._id}`)
     //         .then(res => res.json())
     // })
 
@@ -27,7 +27,7 @@ const Like = ({postInfo}) => {
             like,
         };
         console.log(currentLike.like);
-        fetch(`http://localhost:5000/status/${postInfo._id}`, {
+        fetch(`https://eoc-server.vercel.app/status/${postInfo._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

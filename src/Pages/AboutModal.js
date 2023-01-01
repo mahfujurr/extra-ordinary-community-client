@@ -14,7 +14,7 @@ const AboutModal = () => {
             university,
             address
         }
-        fetch('http://localhost:5000/userinfo', {
+        fetch('https://eoc-server.vercel.app/userinfo', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

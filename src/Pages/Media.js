@@ -6,7 +6,7 @@ import Like from './Like';
 const Media = () => {
     const { data: postInfos = [], } = useQuery({
         queryKey: ['postInfos'],
-        queryFn: () => fetch(`http://localhost:5000/posts`)
+        queryFn: () => fetch(`https://eoc-server.vercel.app/posts`)
             .then(res => res.json())
     })
     return (
