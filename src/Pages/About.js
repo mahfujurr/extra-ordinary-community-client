@@ -8,7 +8,7 @@ const About = () => {
     const { user } = useContext(AuthContext);
     const { data: userInfo = [], refetch } = useQuery({
         queryKey: ['userInfo'],
-        queryFn: () => fetch(`https://eoc-server.vercel.app/userinfo/${user?.email}`)
+        queryFn: () => fetch(`http://localhost:5000/userinfo/${user?.email}`)
             .then(res => res.json())
     })
     return (

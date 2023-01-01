@@ -6,7 +6,7 @@ import Like from './Like';
 const Media = () => {
     const { data: postInfos = [], } = useQuery({
         queryKey: ['postInfos'],
-        queryFn: () => fetch(`https://eoc-server.vercel.app/posts`)
+        queryFn: () => fetch(`http://localhost:5000/posts`)
             .then(res => res.json())
     })
     return (
@@ -32,7 +32,7 @@ const Media = () => {
                     </div>
 
                     <h1>
-                        {postInfo.postsText}
+                        {postInfo.postsText.length > 100 ? postInfo.postsText.slice(0, 100) + '...' : postInfo.postsText}
                     </h1>
                     {
                         postInfo?.imgURL && <img src={postInfo?.imgURL} alt="" className='my-2 bg-cover bg-center' />

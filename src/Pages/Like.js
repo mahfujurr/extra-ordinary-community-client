@@ -3,13 +3,14 @@ import React, { useState } from 'react';
 import { FaHeart } from "react-icons/fa";
 
 
-const Like = () => {
-    // const { data: dblike = [], refetch } = useQuery({
-    //     queryKey: ['dblike'],
-    //     queryFn: () => fetch(`https://eoc-server.vercel.app/postlike`)
+const Like = ({postInfo}) => {
+    // const { data: postl = [], refetch } = useQuery({
+    //     queryKey: ['postl'],
+    //     queryFn: () => fetch(`http://localhost:5000/status/${postInfo._id}`)
     //         .then(res => res.json())
     // })
-    const [likes, setLikes] = useState(0);
+
+    const [likes, setLikes] = useState(postInfo.like);
     const [isClicked, setIsClicked] = useState(false);
 
     const handleClick = () => {
@@ -19,21 +20,29 @@ const Like = () => {
             setLikes(likes + 1);
         }
         setIsClicked(!isClicked);
-    //     const currentLike = likes;
-    //     fetch('https://eoc-server.vercel.app/postlike', {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(currentLike)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //             refetch();
-    //             // form.reset();
+        
+        const like = likes;
 
-    //         })
+        const currentLike = {
+            like,
+        };
+        console.log(currentLike.like);
+        fetch(`http://localhost:5000/status/${postInfo._id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(currentLike)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                
+                // refetch();
+                // form.reset();
+
+            })
+            
     };
 
     return (

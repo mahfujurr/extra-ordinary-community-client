@@ -39,7 +39,7 @@ const router = createBrowserRouter([
             {
                 path: '/status/:id',
                 element: <PagesStatus></PagesStatus>,
-                loader: ({params}) => fetch(`https://eoc-server.vercel.app/status/${params.id}`)
+                loader: ({params}) => fetch(`http://localhost:5000/status/${params.id}`)
             },
             
         ]

@@ -9,7 +9,7 @@ const PagesStatus = () => {
     const { user } = useContext(AuthContext);
     const { data: commentInfo = [], refetch } = useQuery({
         queryKey: ['commentInfo'],
-        queryFn: () => fetch(`https://eoc-server.vercel.app/comments/${postInfo._id}`)
+        queryFn: () => fetch(`http://localhost:5000/comments/${postInfo._id}`)
             .then(res => res.json())
     })
     const handleSubmit = e => {
@@ -26,7 +26,7 @@ const PagesStatus = () => {
             postId
         }
 
-        fetch('https://eoc-server.vercel.app/comments', {
+        fetch('http://localhost:5000/comments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -66,8 +66,13 @@ const PagesStatus = () => {
                 <h1>
                     {postInfo.postsText}
                 </h1>
+                {
+                            postInfo?.imgURL && <img src={postInfo?.imgURL} alt="" className='my-2 bg-cover bg-center' />
+                        }
                 <div className='mt-2'>
-                    <Like ></Like>
+                    <Like postInfo={postInfo} 
+                    key={postInfo._id} 
+                    refetch={refetch}></Like>
                 </div>
                 <hr className='border mt-3' />
                 <div>

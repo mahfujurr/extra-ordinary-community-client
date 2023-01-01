@@ -12,7 +12,7 @@ const Home = () => {
     const imageHostKey = process.env.REACT_APP_imgbb_key;
     const { data: postInfos = [], refetch } = useQuery({
         queryKey: ['postInfos'],
-        queryFn: () => fetch(`https://eoc-server.vercel.app/posts`)
+        queryFn: () => fetch(`http://localhost:5000/home`)
             .then(res => res.json())
     })
 
@@ -44,15 +44,17 @@ const Home = () => {
         const name = user?.displayName;
         const photo = user?.photoURL;
         const imgURL = imageData;
+        const like = 0;
         const info = {
             time: Date.now(),
             postsText,
             email,
             name,
             photo,
-            imgURL
+            imgURL,
+            like
         }
-        fetch('https://eoc-server.vercel.app/posts', {
+        fetch('http://localhost:5000/posts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -139,7 +141,7 @@ const Home = () => {
                         </div>
 
                         <h1>
-                            {postInfo.postsText}
+                            {postInfo.postsText.length > 100 ? postInfo.postsText.slice(0, 100) + '...' : postInfo.postsText}
                         </h1>
                         {
                             postInfo?.imgURL && <img src={postInfo?.imgURL} alt="" className='my-2 bg-cover bg-center' />
@@ -147,6 +149,7 @@ const Home = () => {
                         <div className='flex justify-between items-center'>
                             <Like key={postInfo._id}
                                 postInfo={postInfo}
+                                refetch={refetch}
                             ></Like>
                             <Link to={`/status/${postInfo._id}`}><button className='text-xs mt-2 hover:bg-black hover:text-white border-2 py-1 px-2 border-black rounded-2xl'>View details</button></Link>
                         </div>
