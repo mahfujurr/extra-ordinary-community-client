@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { FaComment } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 import Like from './Like';
@@ -115,7 +116,7 @@ const Home = () => {
                     </form>
 
 
-                </div> : <h1  className='p-2 bg-white shadow-lg rounded-xl'>Please <Link to='/login' className='text-blue-600' >login</Link> to post</h1>
+                </div> : <h1 className='p-2 bg-white shadow-lg rounded-xl'>Please <Link to='/login' className='text-blue-600' >login</Link> to post</h1>
             }
             {/* posting section  end*/}
 
@@ -147,16 +148,21 @@ const Home = () => {
                             postInfo?.imgURL && <img src={postInfo?.imgURL} alt="" className='my-2 bg-cover bg-center' />
                         }
                         <div className='flex justify-between items-center'>
-                            <Like key={postInfo._id}
-                                postInfo={postInfo}
-                                refetch={refetch}
-                            ></Like>
-                            <Link to={`/status/${postInfo._id}`}><button className='text-xs mt-2 hover:bg-black hover:text-white border-2 py-1 px-2 border-black rounded-2xl'>View details</button></Link>
+                            <div className='flex justify-center items-center '>
+                                <Like key={postInfo._id}
+                                    postInfo={postInfo}
+                                    refetch={refetch}
+                                ></Like>
+                                <div className='ml-5'>
+                                <Link to={`/status/${postInfo._id}`}><FaComment className='text-2xl'></FaComment></Link>
+                                </div>
+                            </div>
+                            <Link to={`/status/${postInfo._id}`}><button className='text-xs mt-2 hover:bg-black hover:text-white border-2 py-1 px-2 border-black rounded-2xl ease-in-out duration-300'>View details</button></Link>
                         </div>
                     </div>)
                 }
             </div>
-            
+
         </div>
     );
 };
