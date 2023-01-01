@@ -28,7 +28,7 @@ const Navbar = () => {
         }
     </>
     return (
-        <div className='z-10 fixed top-0 w-full bg-rose-100 flex items-center justify-center md:justify-between py-1 md:py-0 shadow-md'>
+        <div className='z-10 md:fixed top-0 w-full bg-rose-100 flex items-center justify-center md:justify-between py-1 md:py-0 shadow-md'>
             <Link to='/'><h1 className='font-bold text-2xl text-black pl-5 w-1/5'>EOC</h1></Link>
             <div className="  md:flex flex-col justify-center items-center hidden w-3/5">
 

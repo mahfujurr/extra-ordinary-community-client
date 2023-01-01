@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
+import Like from './Like';
 
 const PagesStatus = () => {
     const postInfo = useLoaderData([]);
@@ -42,7 +43,7 @@ const PagesStatus = () => {
     }
 
     return (
-        <div className=''>
+        <div className='mb-16'>
             <div key={postInfo._id} className='mt-2 bg-white shadow-lg rounded-xl p-3'>
                 <div className='flex  items-center'>
                     <div className=" rounded-full mr-3">
@@ -65,7 +66,10 @@ const PagesStatus = () => {
                 <h1>
                     {postInfo.postsText}
                 </h1>
-                <hr className='border mt-5' />
+                <div className='mt-2'>
+                    <Like ></Like>
+                </div>
+                <hr className='border mt-3' />
                 <div>
                     <form onSubmit={handleSubmit}>
                         <h1>Comments</h1>
